@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AndroidERestaurant</string>
+    <string name="entrres">Entrées</string>
+    <string name="plats">Plats</string>
+    <string name="desserts">Desserts</string>
+    <string-array name="dishes">
+        <item>Salade César</item>
+        <item>Salade tout court</item>
+        <item>Salade verte</item>
+    </string-array>
 </resources>
