@@ -29,6 +29,12 @@ class HomeActivity : AppCompatActivity() {
             goToCategory(getString(R.string.desserts))
         }
 
+        binding.bluetoothView.setOnClickListener {
+            val intent = Intent(this, BLEScanActivity:: class.java)
+            startActivity(intent)
+
+        }
+
 
     }
     private fun goToCategory(category: String){

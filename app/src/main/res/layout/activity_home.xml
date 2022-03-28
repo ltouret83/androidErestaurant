@@ -8,16 +8,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="97dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="271dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginBottom="560dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="136dp"
+        android:layout_height="182dp"
+        android:layout_marginTop="116dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:srcCompat="@drawable/img" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -37,7 +34,7 @@
         android:text="Bienvenue"
         android:textAlignment="center"
         android:textColor="#FF5722"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,12 +43,12 @@
         android:id="@+id/homeDroidRestaurant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="268dp"
         android:fontFamily="@font/almendra"
         android:text="DroidRestaurant"
         android:textColor="#E14D1F"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/homeBienvenue" />
 
@@ -60,11 +57,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="154dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="92dp"
         android:layout_marginEnd="226dp"
         android:text="Chez"
         android:textColor="#FF5722"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +78,7 @@
         android:textColor="#FF5722"
         android:textColorHint="#FF5722"
         android:textColorLink="#FF5722"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -92,15 +89,14 @@
         android:id="@+id/homePlats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="469dp"
+        android:layout_marginTop="480dp"
         android:fontFamily="@font/abhaya_libre"
         android:text="@string/plats"
         android:textAlignment="center"
         android:textColor="#FF5722"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -108,17 +104,27 @@
         android:id="@+id/homeDesserts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="504dp"
+        android:layout_marginTop="532dp"
         android:fontFamily="@font/abhaya_libre"
         android:text="@string/desserts"
         android:textAlignment="center"
         android:textColor="#FF5722"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bluetoothView"
+        android:layout_width="98dp"
+        android:layout_height="112dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/homeDesserts"
+        app:srcCompat="@drawable/bluetooth" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

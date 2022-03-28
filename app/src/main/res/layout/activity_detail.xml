@@ -47,22 +47,22 @@
         app:layout_constraintVertical_bias="0.1" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/plusView"
         android:layout_width="40dp"
         android:layout_height="43dp"
-        android:layout_marginStart="104dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="60dp"
-        android:background="#F1F0F0"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredientView"
         app:srcCompat="@drawable/moins" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="55dp"
-        android:layout_height="49dp"
+        android:id="@+id/moinsView"
+        android:layout_width="63dp"
+        android:layout_height="47dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginEnd="124dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredientView"
         app:srcCompat="@drawable/plus" />

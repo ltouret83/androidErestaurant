@@ -20,8 +20,13 @@ class DetailActivity : AppCompatActivity() {
         val carouselAdapter = CarouselAdapter(this, item.images)
         binding.detailSlider.adapter = carouselAdapter
 
+        binding.moinsView.setOnClickListener{
+
+        }
 
 
+    }
+    private fun goToBuy(){
 
 
     }
