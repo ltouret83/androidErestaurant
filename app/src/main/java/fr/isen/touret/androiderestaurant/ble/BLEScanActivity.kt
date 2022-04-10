@@ -1,7 +1,6 @@
-package fr.isen.touret.androiderestaurant
+package fr.isen.touret.androiderestaurant.ble
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
 import android.bluetooth.le.ScanCallback
@@ -16,13 +15,13 @@ import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import fr.isen.touret.androiderestaurant.R
 import fr.isen.touret.androiderestaurant.databinding.ActivityBlescanBinding
-import fr.isen.touret.androiderestaurant.databinding.ActivityHomeBinding
-import java.util.jar.Manifest
 
 class BLEScanActivity : AppCompatActivity() {
     private val itemList = ArrayList<ScanResult>()
     private lateinit var bleAdapter: BLEAdapter
+
 
 
     private lateinit var binding: ActivityBlescanBinding
@@ -41,10 +40,11 @@ class BLEScanActivity : AppCompatActivity() {
         //recycler view
 
         val recyclerBle: RecyclerView = binding.itemBle
-        bleAdapter = BLEAdapter(itemList)
-        val layoutManager = LinearLayoutManager(applicationContext)
-        recyclerBle.layoutManager = layoutManager
-        recyclerBle.adapter = bleAdapter
+        bleAdapter = BLEAdapter(itemList) {
+            val intent = Intent(this, BLEDeviceActivity::class.java)
+            intent.putExtra("device", it)
+            startActivity(intent)
+        }
 
 
         when{
@@ -62,6 +62,9 @@ class BLEScanActivity : AppCompatActivity() {
                 displayNoBLEUnAvailable()
             }
         }
+        val layoutManager = LinearLayoutManager(applicationContext)
+        recyclerBle.layoutManager = layoutManager
+        recyclerBle.adapter = bleAdapter
 
         title = "AndroidToolBox"
     }
@@ -74,7 +77,9 @@ class BLEScanActivity : AppCompatActivity() {
         if (checkAllPermissionGranted()) {
             startLeScanBLE(enable)
         }else{
-            ActivityCompat.requestPermissions(this, getAllPermissions() ,ALL_PERMISSION_REQUEST_CODE)
+            ActivityCompat.requestPermissions(this, getAllPermissions() ,
+                ALL_PERMISSION_REQUEST_CODE
+            )
         }
     }
 
@@ -118,10 +123,15 @@ class BLEScanActivity : AppCompatActivity() {
     private val scanCallback = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             Log.d("BLEScanActivity", "result: ${result.device.address}, rssi : ${result.rssi}")
-            itemList.add(result)
-            bleAdapter.notifyDataSetChanged()
+            //addToList(result)
+            bleAdapter.apply{
+                addToList(result)
+                notifyDataSetChanged()
+            }
         }
     }
+
+
     private fun askBluetoothPermission(){
             val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
             if (ActivityCompat.checkSelfPermission(
@@ -156,8 +166,19 @@ class BLEScanActivity : AppCompatActivity() {
 
         private const val ALL_PERMISSION_REQUEST_CODE= 100
         private const val ENABLE_PERMISSION_REQUEST_CODE= 1
+        const val DEVICE_KEY = "device"
 
 
 
+    }
+    private fun addToList(result:ScanResult){
+        val index:Int = itemList.indexOfFirst{ it.device.address==result.device.address }
+        if(index == -1){
+            itemList.add(result)
+        }else{
+            itemList[index]=result
+        }
+        itemList.sortBy { kotlin.math.abs(it.rssi) }
+        bleAdapter.notifyDataSetChanged()
     }
 }

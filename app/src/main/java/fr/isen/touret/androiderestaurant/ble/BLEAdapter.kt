@@ -1,14 +1,14 @@
-package fr.isen.touret.androiderestaurant
+package fr.isen.touret.androiderestaurant.ble
 
 import android.annotation.SuppressLint
+import android.bluetooth.BluetoothDevice
 import android.bluetooth.le.ScanResult
-import android.support.annotation.NonNull
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.touret.androiderestaurant.databinding.ItemBleBinding
 
-internal class BLEAdapter(private var itemsList: MutableList<ScanResult>) : RecyclerView.Adapter<BLEAdapter.MyViewHolder>() {
+internal class BLEAdapter(private var itemsList: MutableList<ScanResult>, val clickListener: (BluetoothDevice) -> Unit) : RecyclerView.Adapter<BLEAdapter.MyViewHolder>() {
     private lateinit var binding: ItemBleBinding
 
     internal inner class MyViewHolder(binding: ItemBleBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -17,7 +17,7 @@ internal class BLEAdapter(private var itemsList: MutableList<ScanResult>) : Recy
         val macAdress = binding.macView
     }
 
-    @NonNull
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         binding = ItemBleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
@@ -39,5 +39,8 @@ internal class BLEAdapter(private var itemsList: MutableList<ScanResult>) : Recy
 
         holder.distance.text = item.rssi.toString()
         holder.macAdress.text = item.device.address
+        holder.itemView.setOnClickListener {
+            clickListener(item.device)
+        }
     }
 }

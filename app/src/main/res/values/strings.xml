@@ -13,9 +13,16 @@
     <string name="ble_scan_play">Lancer le scan BLE</string>
     <string name="ble_scan_stop">Scan BLE en cours...</string>
     <string name="ble_scan_error">Pas de bluetooth disponible</string>
-    <string name="AdressMac">Adresse Mac:</string>
+    <string name="AdressMac">0000000000</string>
     <string name="distanceBLE">TextView</string>
     <string name="deviceName">Device Unknow</string>
+    <string name="ble_device_disconnected">Statut: déconnecté</string>
+    <string name="ble_device_connected">Statut: connecté</string>
+    <string name="ble_device_characterictic">Button</string>
+    <string name="ble_device_write">Lecture</string>
+    <string name="platPrice" />
+    <string name="itemName" />
+    <string name="none" />
 
 
 </resources>

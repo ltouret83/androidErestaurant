@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import fr.isen.touret.androiderestaurant.ble.BLEScanActivity
 import fr.isen.touret.androiderestaurant.databinding.ActivityHomeBinding
 
 
