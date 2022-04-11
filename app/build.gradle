@@ -50,6 +50,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.android.volley:volley:1.2.1'
     implementation 'com.thoughtbot:expandablerecyclerview:1.4'
+    implementation 'com.github.polok:clicknumberpicker:0.1.2'
+
 
 
 }

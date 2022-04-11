@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidERestaurant</string>
+    <string name="app_name">LaurenaAndroidERestaurant</string>
     <string name="entrres">Entrées</string>
     <string name="plats">Plats</string>
     <string name="desserts">Desserts</string>
@@ -23,6 +23,9 @@
     <string name="platPrice" />
     <string name="itemName" />
     <string name="none" />
+    <string name="buttonDesserts">Dessert</string>
+    <string name="buttonPlats">Plats</string>
+    <string name="buttonEntrees">Entrees</string>
 
 
 </resources>

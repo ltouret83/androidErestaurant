@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.gson.Gson
+import fr.isen.touret.androiderestaurant.adapter.ViewPagerAdapter
 import fr.isen.touret.androiderestaurant.databinding.ActivityItemBinding
 import fr.isen.touret.androiderestaurant.model.Item
 import fr.isen.touret.androiderestaurant.model.Panier
@@ -51,7 +52,7 @@ class ItemActivity : AppCompatActivity() {
 
         viewPager = findViewById(R.id.viewpager)
 
-        mViewPagerAdapter = ViewPagerAdapter(this, imageList)
+        mViewPagerAdapter = ViewPagerAdapter(this, imageList )
         viewPager.adapter = mViewPagerAdapter
 
         viewPager.pageMargin = 15

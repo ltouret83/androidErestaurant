@@ -1,4 +1,4 @@
-package fr.isen.touret.androiderestaurant
+package fr.isen.touret.androiderestaurant.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import android.widget.ImageView
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import fr.isen.touret.androiderestaurant.R
 import fr.isen.touret.androiderestaurant.databinding.ItemPanierBinding
 import fr.isen.touret.androiderestaurant.model.PanierLine
 

@@ -1,4 +1,4 @@
-package fr.isen.touret.androiderestaurant
+package fr.isen.touret.androiderestaurant.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
 import com.squareup.picasso.Picasso
+import fr.isen.touret.androiderestaurant.R
 
-class ViewPagerAdapter(private val mContext: Context, private val itemList: ArrayList<String>) : PagerAdapter() {
+class ViewPagerAdapter(private val mContext: Context, private val itemList: Array<String>) : PagerAdapter() {
     private var layoutInflater: LayoutInflater? = null
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {

@@ -45,6 +45,14 @@ class BLEDeviceActivity : AppCompatActivity() {
                 }
             }
 
+           override fun onCharacteristicRead(
+               gatt: BluetoothGatt?,
+               characteristic: BluetoothGattCharacteristic?,
+               status: Int
+           ) {
+               super.onCharacteristicRead(gatt, characteristic, status)
+           }
+
             override fun onDescriptorRead(
                 gatt: BluetoothGatt?,
                 descriptor: BluetoothGattDescriptor?,

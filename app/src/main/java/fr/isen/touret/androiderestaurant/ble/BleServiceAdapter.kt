@@ -1,6 +1,7 @@
 package fr.isen.touret.androiderestaurant.ble
 
 import android.bluetooth.BluetoothGattCharacteristic
+import android.content.Context
 
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,8 @@ import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder
 import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder
 import fr.isen.touret.androiderestaurant.R
 
-class BleServiceAdapter(bleServices: MutableList<BleService>) :ExpandableRecyclerViewAdapter<BleServiceAdapter.ServiceViewHolder, BleServiceAdapter.CharacteristicViewHolder>(bleServices){
+class BleServiceAdapter( bleServices: MutableList<BleService>) :ExpandableRecyclerViewAdapter<BleServiceAdapter.ServiceViewHolder, BleServiceAdapter.CharacteristicViewHolder>(bleServices){
+
 
     class ServiceViewHolder(itemView: View): GroupViewHolder(itemView){
         var serviceName: TextView = itemView.findViewById(R.id.serviceName)

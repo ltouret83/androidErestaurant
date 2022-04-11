@@ -11,46 +11,52 @@ import fr.isen.touret.androiderestaurant.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        title = "LaurenaAndroidERestaurant"
+
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.homeEntrees.setOnClickListener{
-            goToCategory(getString(R.string.entrres))
-        }
+        var buttonEntrees = binding.buttonEntrees
+        var buttonPlats = binding.buttonPlats
+        var buttonDesserts = binding.buttonDesserts
+        var buttonBLE = binding.buttonBLE
 
-
-        binding.homePlats.setOnClickListener{
-            goToCategory(getString(R.string.plats))
-        }
-
-        binding.homeDesserts.setOnClickListener{
-            goToCategory(getString(R.string.desserts))
-        }
-
-        binding.bluetoothView.setOnClickListener {
-            val intent = Intent(this, BLEScanActivity:: class.java)
+        buttonEntrees.setOnClickListener {
+            // make a toast on button click event
+            Toast.makeText(this, "La page des entrées", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, CategoryActivity::class.java)
+            intent.putExtra("Category", "Entrées")
             startActivity(intent)
-
+        }
+        buttonPlats.setOnClickListener {
+            // make a toast on button click event
+            Toast.makeText(this, "La page plats", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, CategoryActivity::class.java)
+            intent.putExtra("Category", "Plats")
+            startActivity(intent)
+        }
+        buttonDesserts.setOnClickListener {
+            // make a toast on button click event
+            Toast.makeText(this, "La page desserts", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, CategoryActivity::class.java)
+            intent.putExtra("Category", "Desserts")
+            startActivity(intent)
+        }
+        buttonBLE.setOnClickListener {
+            // make a toast on button click event
+            Toast.makeText(this, "La page bluetooth", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, BLEScanActivity::class.java)
+            startActivity(intent)
         }
 
-
-    }
-    private fun goToCategory(category: String){
-        val intent = Intent(this, CategoryActivity:: class.java)
-        Toast.makeText(
-            this@HomeActivity,
-            category,
-            Toast.LENGTH_SHORT
-        ).show()
-        intent.putExtra("NomGlobal", category)
-        startActivity(intent)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("HomeActivité","mon activité est détruit: ")
+        Log.d("destroy", "onDestroy: ")
     }
 }
